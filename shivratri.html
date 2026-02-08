@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Maha Shivratri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome for Instagram Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #1a2a3a, #000);
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        input {
+            padding: 12px;
+            width: 70%;
+            max-width: 300px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #ffd700;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #ffcc00;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ffd700;
+        }
+
+        .insta {
+            margin-top: 15px;
+            font-size: 2rem;
+        }
+
+        .insta a {
+            color: #E1306C;
+            text-decoration: none;
+        }
+
+        .insta a:hover {
+            color: #ff5c8a;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0,0,0,0.4);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🕉️ Maha Shivratri 🕉️</h1>
+    <p>Interact • Pray • Feel the Energy</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🙏 Get Your Shivratri Blessing</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <br>
+        <button onclick="giveBlessing()">Get Blessing</button>
+        <div class="output" id="blessingOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>🔔 Ring the Temple Bell</h2>
+        <button onclick="ringBell()">Ring Bell</button>
+        <div class="output" id="bellOutput"></div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Created with devotion by <strong>Shaksham Sharma</strong></p>
+
+    <div class="insta">
+        <a href="https://www.instagram.com/shaksham_sharma_559" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <p>@shaksham_sharma_559</p>
+    </div>
+
+    <p>© 2026 | Happy Maha Shivratri</p>
+</footer>
+
+<script>
+    function giveBlessing() {
+        const name = document.getElementById("nameInput").value.trim();
+        const output = document.getElementById("blessingOutput");
+
+        if (name === "") {
+            output.innerHTML = "Please enter your name 🙏";
+            return;
+        }
+
+        const blessings = [
+            `✨ May Lord Shiva bless you, <b>${name}</b>.<br>
+             May your life be filled with peace, strength, and wisdom.<br>
+             Om Namah Shivaya 🔱✨`,
+
+            `🌙 O <b>${name}</b>, may Mahadev remove all obstacles from your path.<br>
+             May success, health, and happiness follow you always.<br>
+             Har Har Mahadev 🙏`,
+
+            `🕉️ Blessings for you, <b>${name}</b>.<br>
+             May Lord Shiva grant you inner power and calmness of mind.<br>
+             Stay protected under his divine energy 🔱`,
+
+            `✨ Dear <b>${name}</b>, may Bholenath shower you with courage and positivity.<br>
+             May every night turn into a new beginning.<br>
+             Happy Maha Shivratri 🕉️`
+        ];
+
+        const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
+        output.innerHTML = randomBlessing;
+    }
+
+    function ringBell() {
+        document.getElementById("bellOutput").innerHTML =
+            "🔔 *Bell rings* May positivity and divine energy surround you!";
+    }
+</script>
+
+</body>
+</html>
